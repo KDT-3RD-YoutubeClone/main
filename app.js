@@ -4,6 +4,7 @@ const PORT = 8000;
 
 app.set('view engine', 'ejs'); //view engine 등록
 app.use('/views', express.static(__dirname + '/views'));
+app.use('/static', express.static(__dirname + '/static'));
 
 // body-parser: 데이터를 쉽게 처리할 수 있도록 도와주는 라이브러리
 app.use(express.urlencoded({ extended: true }));
