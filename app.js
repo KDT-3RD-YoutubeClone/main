@@ -1,6 +1,16 @@
 const express = require('express');
 const app = express();
 const PORT = 8000;
+// axios 요청
+const axios = require('axios');
+// google api key
+const apiKey = 'AIzaSyB5RPkxyIe4yXFove-TwgRn05jMKhR2FYA';
+// googleapis module 요청
+const {google} = require('googleapis')
+const youtube = google.youtube({
+  version: 'v3',
+  auth: apiKey,
+});
 
 app.set('view engine', 'ejs'); //view engine 등록
 app.use('/views', express.static(__dirname + '/views'));
@@ -16,6 +26,40 @@ app.get('/',function (req,res) {
   // res.send('root page');
   res.render('index'); //views/index.ejs 파일을 찾아서 응답
 });
+// localhost:8000/search로 q(검색어) 에 해당하는 검색 결과 데이터를 보내기
+app.get("/search", async (req, res, next) => {
+  try{
+    const response = await youtube.search.list({
+      part: "snippet",
+      //  q = 검색어 (설정가능);
+      q: '인기',
+      regionCode: "KR",
+      type: "video",
+    })
+    res.send(response);
+  } catch (err) {
+    next(err);
+  }
+})
+
+// localhost:8000/trend로 mostPopular한 검색 결과 데이터를 보내기
+app.get("/trend", async (req, res, next) => {
+  try{
+    const response = await youtube.search.list({
+      part: "snippet",
+      //  q = 검색어 (설정가능);
+      chart: "mostPopular",
+      regionCode: "KR",
+      type: "video",
+      maxResults: "8",
+      order: "viewCount",
+      safeSearch: "strict",
+    })
+    res.send(response);
+  } catch (err) {
+    next(err);
+  }
+})
 
 app.listen(PORT, function () {
   console.log(`http://localhost:${PORT}`);
