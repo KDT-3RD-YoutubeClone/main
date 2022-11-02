@@ -6,6 +6,7 @@ header .top-nav{
   top: 0;
   left: 100px;
   display: flex;
+  flex-basis: auto;
   width: 100%;
   height: 60px;
   border-bottom: 1px solid rgb(218, 218, 218);
@@ -124,12 +125,25 @@ main .main-contents{
   position: absolute;
   top: 121px;
   left: 100px;
-  width: 100%;
+  width: 100vw;
+  flex-basis: 600px;
+  flex-grow: 1;
+  flex-shrink: 1;
   min-height: 1000px;
   background-color: #f9f9f9;
   z-index: 0;
 }
-main .main-contents ul{
-  padding: 50px;
+.main-contents .player-box{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
   box-sizing: border-box;
+}
+.main-contents .player-box .youtube{
+  flex-basis: 150px;
+  flex-shrink: 1;
+  flex-grow: 0;
 }
