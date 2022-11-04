@@ -10,7 +10,6 @@ const youtube = google.youtube({
   auth: googleKey,
 });
 
-
 app.set('view engine', 'ejs'); //view engine 등록
 app.use('/views', express.static(__dirname + '/views'));
 app.use('/static', express.static(__dirname + '/static'));
@@ -35,15 +34,20 @@ app.get('/',  async function (req,res, next) {
       safeSearch: "strict",
     })
     let items = response.data.items
-    console.log(items);
-
-    let trendVideoId = []
+    // console.log(items);
+    let videoId = []
     for (i =0; i< items.length; i++){
-      trendVideoId.push(items[i].id.videoId);
-      // console.log(items);
+      videoId.push(items[i].id.videoId);
     }
-    // res.send(trendVideoId);
-    res.render('index', {trendVideoId : trendVideoId});
+    let thumbnail = []
+    for (i =0; i< items.length; i++){
+      thumbnail.push(items[i].snippet.thumbnails.default.url);
+    }
+    const data = {
+      videoId : videoId,
+      thumbnail : thumbnail,
+    }
+    res.render('index', {data : data});
   } catch (err) {
     next(err);
   }
@@ -84,6 +88,69 @@ app.get("/trend", async (req, res, next) => {
     next(err);
   }
 })
+
+
+app.get("/game", async (req, res, next) => {
+  try{
+    const response = await youtube.search.list({
+      part: "snippet",
+      //  q = 검색어 (설정가능);
+      videoCategoryId: 20,
+      regionCode: "KR",
+      type: "video",
+      maxResults: "8",
+    })
+    let items = response.data.items
+    // console.log(items);
+    let videoId = []
+    for (i =0; i< items.length; i++){
+      videoId.push(items[i].id.videoId);
+    }
+    let thumbnail = []
+    for (i =0; i< items.length; i++){
+      thumbnail.push(items[i].snippet.thumbnails.default.url);
+    }
+    const data = {
+      videoId : videoId,
+      thumbnail : thumbnail,
+    }
+    res.send(data);
+  } catch (err) {
+    next(err);
+  }
+})
+
+function getSearch(url, searchWord) {
+  app.get(url, async (req, res, next) => {
+    try{
+      const response = await youtube.search.list({
+        part: "snippet",
+        //  q = 검색어 (설정가능);
+        q: searchWord,
+        regionCode: "KR",
+        type: "video",
+        maxResults: "8",
+      })
+      let items = response.data.items
+    // console.log(items);
+      let videoId = []
+      for (i =0; i< items.length; i++){
+        videoId.push(items[i].id.videoId);
+      }
+      let thumbnail = []
+      for (i =0; i< items.length; i++){
+        thumbnail.push(items[i].snippet.thumbnails.default.url);
+      }
+      const data = {
+        videoId : videoId,
+        thumbnail : thumbnail,
+      }
+      res.send(data);
+    } catch (err) {
+      next(err);
+    }
+  })
+}
 
 app.listen(PORT, function () {
   console.log(`http://localhost:${PORT}`);

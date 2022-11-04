@@ -20,9 +20,12 @@
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
     crossorigin="anonymous"
   ></script>
+  <!-- axios api -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- player api 불러오는 js -->
   <script defer src="/static/js/playerApi.js"></script>
-  </head>
+  <script src="/static/js/axiosBtn.js"></script>  
+</head>
 <body>
   <!-- 헤더영역 -->
   <header>
@@ -79,7 +82,7 @@
     <div class="filter-container">
       <ul>
         <li>전체</li>
-        <li>게임</li>
+        <li onclick="axiosGame()">게임</li>
         <li>실시간</li>
         <li>음악</li>
         <li>믹스</li>
@@ -99,30 +102,57 @@
       <div class="youtube" data-url=""></div>
       <div class="youtube" data-url=""></div>
       <div class="youtube" data-url=""></div> -->
+      
       <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[0]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=data.videoId[0]%>" frameborder="0"></iframe>
       </div>
       <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[1]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=data.videoId[1]%>" frameborder="0" ></iframe>
       </div>
       <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[2]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=data.videoId[2]%>" frameborder="0" ></iframe>
       </div>
       <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[3]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=data.videoId[3]%>" frameborder="0" ></iframe>
       </div>
       <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[4]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=data.videoId[4]%>" frameborder="0" ></iframe>
       </div>
       <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[5]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=data.videoId[5]%>" frameborder="0" ></iframe>
       </div>
       <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[6]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=data.videoId[6]%>" frameborder="0" ></iframe>
       </div>
       <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[7]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=data.videoId[7]%>" frameborder="0" ></iframe>
       </div>
+
+      <div>
+        <iframe class="game" width="100%" height="100%" src="" frameborder="0"></iframe>
+      </div>
+      <div>
+        <iframe class="game" width="100%" height="100%" src="" frameborder="0" ></iframe>
+      </div>
+      <div>
+        <iframe class="game" width="100%" height="100%" src="" frameborder="0" ></iframe>
+      </div>
+      <div>
+        <iframe class="game" width="100%" height="100%" src="" frameborder="0" ></iframe>
+      </div>
+      <div>
+        <iframe class="game" width="100%" height="100%" src="" frameborder="0" ></iframe>
+      </div>
+      <div>
+        <iframe class="game" width="100%" height="100%" src="" frameborder="0" ></iframe>
+      </div>
+      <div>
+        <iframe class="game" width="100%" height="100%" src="" frameborder="0" ></iframe>
+      </div>
+      <div>
+        <iframe class="game" width="100%" height="100%" src="" frameborder="0" ></iframe>
+      </div>
+
 
     </div>
     </div>
