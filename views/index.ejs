@@ -1,64 +1,78 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>youtube</title>
-  <!-- css: reset -->
-  <link rel="stylesheet" href="/static/css/reset.css" type="text/css">
-  <!-- css: layout /jy -->
-  <link rel="stylesheet" href="/static/css/layout.css" type="text/css">
-  <!-- font : noto sans, moserrat, roboto -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+KR:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <!-- fontawsome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>youtube</title>
+    <!-- css: reset -->
+    <link rel="stylesheet" href="/static/css/reset.css" type="text/css" />
+    <!-- css: layout /jy -->
+    <link rel="stylesheet" href="/static/css/layout.css" type="text/css" />
+    <!-- font : noto sans, moserrat, roboto -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+KR:wght@400;500&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawsome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
     <!-- jquery cdn (for API)-->
-  <script
-    src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-    crossorigin="anonymous"
-  ></script>
-  <!-- player api 불러오는 js -->
-  <script defer src="/static/js/playerApi.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <!-- player api 불러오는 js -->
+    <script defer src="/static/js/playerApi.js"></script>
   </head>
-<body>
-  <!-- 헤더영역 -->
-  <header>
-    <!-- 상단 nav -->
-    <div class="top-nav">
-      <h1><i class="fab fa-youtube"></i>YOUTUBE</h1>
-      <div class="top-search-box">
-      <input type="text" placeholder="검색">
-      <button type="button"><i class="xi-search"></i></button>
-    </div>
-    <a href=""><i class="fas fa-user-circle"></i></a>
-    </div>
-    <!-- left icon nav -->
-    <nav class="left-nav">
-      <ul>
-        <li><i class="xi-bars"></i></li>
-        <li><i class="xi-home"></i><br>
-          <span>홈</span>
-        </li>
-        <li><i class="xi-library-video"></i><br>
-          <span>Shorts</span>
-        </li>
-        <li><i class="xi-video-call"></i><br>
-          <span>구독</span>
-        </li>
-        <li><i class="xi-timer-o"></i><br>
-          <span>시청 기록</span>
-        </li>
-        <li><i class="far fa-clock"></i><br>
-          <span>나중에 볼 동영상</span>
-        </li>
-      </ul>
-    </nav>
+  <body>
+    <!-- 헤더영역 -->
+    <header>
+      <!-- 상단 nav -->
+      <div class="top-nav">
+        <h1><i class="fab fa-youtube"></i>YOUTUBE</h1>
+        <div class="top-search-box">
+          <input type="text" placeholder="검색" />
+          <button type="button"><i class="xi-search"></i></button>
+        </div>
+        <a href=""><i class="fas fa-user-circle"></i></a>
+      </div>
+      <!-- left icon nav -->
+      <nav class="left-nav">
+        <ul>
+          <li><i class="xi-bars"></i></li>
+          <li>
+            <i class="xi-home"></i><br />
+            <span>홈</span>
+          </li>
+          <li>
+            <i class="xi-library-video"></i><br />
+            <span>Shorts</span>
+          </li>
+          <li>
+            <i class="xi-video-call"></i><br />
+            <span>구독</span>
+          </li>
+          <li>
+            <i class="xi-timer-o"></i><br />
+            <span>시청 기록</span>
+          </li>
+          <li>
+            <i class="far fa-clock"></i><br />
+            <span>나중에 볼 동영상</span>
+          </li>
+        </ul>
+      </nav>
 
-    <!-- left icon(toggle)클릭시 나오는 nav -->
-    <!-- <ul class="hide-nav">
+      <!-- left icon(toggle)클릭시 나오는 nav -->
+      <!-- <ul class="hide-nav">
       <li>
         <div class="hide-nav-button">
         <i class="xi-bars"></i>
@@ -71,61 +85,114 @@
       <li><i class="xi-timer-o"></i><span>시청 기록</span></li>
       <li><i class="far fa-clock"></i><span>나중에 볼 동영상</span></li>
     </ul> -->
+    </header>
+    <!-- 메인콘텐츠 -->
+    <main>
+      <!-- 동영상 필터 -->
+      <div class="filter-container">
+        <ul>
+          <li>전체</li>
+          <li>게임</li>
+          <li>실시간</li>
+          <li>음악</li>
+          <li>믹스</li>
+        </ul>
+      </div>
+      <!-- 영상 api 활용하여 데이터 뿌리기 -->
 
-  </header>
-  <!-- 메인콘텐츠 -->
-  <main>
-    <!-- 동영상 필터 -->
-    <div class="filter-container">
-      <ul>
-        <li>전체</li>
-        <li>게임</li>
-        <li>실시간</li>
-        <li>음악</li>
-        <li>믹스</li>
-      </ul>
-    </div>
-    <!-- 영상 api 활용하여 데이터 뿌리기 -->
+      <div class="main-contents">
+        <!-- youtube video api를 불러올 영역 -->
 
-  
-    <div class="main-contents">
-      <!-- youtube video api를 불러올 영역 -->
-      
-      <div class="player-box">
-      <!-- <div class="youtube" data-url=""></div>
+        <div class="player-box">
+          <!-- <div class="youtube" data-url=""></div>
       <div class="youtube" data-url="""></div>
       <div class="youtube" data-url=""></div>
       <div class="youtube" data-url=""></div>
       <div class="youtube" data-url=""></div>
       <div class="youtube" data-url=""></div>
       <div class="youtube" data-url=""></div> -->
-      <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[0]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
+          <div>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/<%=trendVideoId[0]%>"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allow
+            ></iframe>
+          </div>
+          <div>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/<%=trendVideoId[1]%>"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allow
+            ></iframe>
+          </div>
+          <div>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/<%=trendVideoId[2]%>"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allow
+            ></iframe>
+          </div>
+          <div>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/<%=trendVideoId[3]%>"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allow
+            ></iframe>
+          </div>
+          <div>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/<%=trendVideoId[4]%>"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allow
+            ></iframe>
+          </div>
+          <div>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/<%=trendVideoId[5]%>"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allow
+            ></iframe>
+          </div>
+          <div>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/<%=trendVideoId[6]%>"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allow
+            ></iframe>
+          </div>
+          <div>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/<%=trendVideoId[7]%>"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allow
+            ></iframe>
+          </div>
+        </div>
       </div>
-      <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[1]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
-      </div>
-      <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[2]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
-      </div>
-      <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[3]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
-      </div>
-      <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[4]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
-      </div>
-      <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[5]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
-      </div>
-      <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[6]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
-      </div>
-      <div>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=trendVideoId[7]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allow></iframe>
-      </div>
-
-    </div>
-    </div>
-  </main>
-</body>
+    </main>
+  </body>
 </html>
